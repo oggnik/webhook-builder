@@ -13,5 +13,8 @@
   "author": "Nikolas Ogg",
   "bugs": {
     "url": "https://github.com/oggnik/webhook-builder/issues"
+  },
+  "dependencies": {
+    "express": "~4.12.2"
   }
 }
