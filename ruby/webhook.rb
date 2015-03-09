@@ -3,7 +3,7 @@
 require 'sinatra'
 require 'json'
 
-set :bind, '0.0.0.0'
+#set :bind, '0.0.0.0'
 set :port, 3205
 script = './test'
 
