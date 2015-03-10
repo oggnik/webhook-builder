@@ -9,5 +9,7 @@ script = './test'
 
 post '/webhook' do
 	output = `#{script}`
+	puts output
+	""
 end
 
