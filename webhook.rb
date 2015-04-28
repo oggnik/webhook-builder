@@ -29,7 +29,7 @@ end
 
 get '/webhook' do
 	protected!
-	erb :admin
+	erb :admin, :locals => {:script => script}
 end
 
 get '/private/*' do
