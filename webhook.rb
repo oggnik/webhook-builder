@@ -6,7 +6,8 @@ require 'json'
 #set :bind, '0.0.0.0'
 set :port, 3205
 script = './test'
-
+$admin_username = 'admin'
+$admin_password = 'admin'
 
 helpers do
 	def protected!
@@ -17,7 +18,7 @@ helpers do
 
 	def authorized?
 		@auth ||=  Rack::Auth::Basic::Request.new(request.env)
-		@auth.provided? and @auth.basic? and @auth.credentials and @auth.credentials == ['admin', 'admin']
+		@auth.provided? and @auth.basic? and @auth.credentials and @auth.credentials == [$admin_username, $admin_password]
 	end
 end
 
@@ -28,8 +29,9 @@ post '/webhook' do
 end
 
 get '/webhook' do
+	puts "#{defined? admin_username}"
 	protected!
-	erb :admin, :locals => {:script => script}
+	erb :admin
 end
 
 get '/private/*' do
