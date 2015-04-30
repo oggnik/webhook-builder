@@ -1,3 +1,3 @@
 function sendWebhookRequest() {
-	$.post("/webhook");
+	$.post("/webhook", {"sender": "Admin Page"});
 }

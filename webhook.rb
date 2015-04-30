@@ -3,6 +3,8 @@
 require 'sinatra'
 require 'json'
 
+require_relative 'webhook_request'
+
 #set :bind, '0.0.0.0'
 set :port, 3205
 script = './test'
@@ -23,13 +25,14 @@ helpers do
 end
 
 post '/webhook' do
+	webhook_request = WebhookRequest.new(request.body.read.to_s)
+	puts webhook_request.request_body
 	output = `#{script}`
 	puts output
 	""
 end
 
 get '/webhook' do
-	puts "#{defined? admin_username}"
 	protected!
 	erb :admin
 end
