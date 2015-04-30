@@ -7,22 +7,40 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-		<title>Money Management</title>
+		<title>Webhook Admin Page</title>
 
-		<!-- Bootstrap -->
+		<!-- Bootstrap and JQuery-->
 		<link href="css/bootstrap.min.css" rel="stylesheet" />
-		<script src="js/bootstrap.min.js"></script>
-		<!-- JQuery -->
 		<script src="js/jquery-1.11.2.min.js"></script>
-		
+		<script src="js/bootstrap.min.js"></script>
 
+		<!-- Custom stuff -->
 		<link rel="stylesheet" href="css/style.css" />
 		<script src="private/js/scripts.js"></script>
 	</head>
 
 	<body>
-		<div class="container">
-			
+		<!-- Navbar -->
+		<div class="navbar navbar-default navbar-static-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">Webhook Admin Page</a>
+				</div>
+				<div id="navbar">
+					<div class="nav navbar-nav navbar-right">
+						<ul class="nav navbar-nav">
+							<button class="btn btn-warning navbar-btn" onclick="sendWebhookRequest()">Send Webhook Request</button>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<h1>Stuff</h1>
+			<div class="row">
+				<div class="col-md-3">md-3</div>
+				<div class="col-md-9">md-9</div>
+			</div>
 		</div>
 	</body>
 </html>

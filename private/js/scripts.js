@@ -1,0 +1,3 @@
+function sendWebhookRequest() {
+	$.post("/webhook");
+}
