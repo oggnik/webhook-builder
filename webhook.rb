@@ -11,6 +11,11 @@ script = './test'
 $admin_username = 'admin'
 $admin_password = 'admin'
 
+
+# Keep past webhook requests
+past_requests = Array.new
+
+
 helpers do
 	def protected!
 		return if authorized?
@@ -24,20 +29,29 @@ helpers do
 	end
 end
 
+# Run the script upon getting a webhook post request
 post '/webhook' do
-	webhook_request = WebhookRequest.new(request.body.read.to_s)
-	puts webhook_request.request_body
 	output = `#{script}`
-	puts output
+	webhook_request = WebhookRequest.new(request.body.read.to_s, output)
+	past_requests.unshift webhook_request
+	puts webhook_request.to_json
 	""
 end
 
+# Get the admin page
 get '/webhook' do
 	protected!
-	erb :admin
+	erb :admin, :locals => {:script => script}
 end
 
+# Make sure any requests requesting private files are authenticated
 get '/private/*' do
 	protected!
 	send_file "private/#{params['splat'][0]}"
+end
+
+# Get the past requests in json format
+get '/webhook/past_requests' do
+	protected!
+	{'requests' => past_requests}.to_json
 end
