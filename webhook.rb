@@ -53,5 +53,6 @@ end
 # Get the past requests in json format
 get '/webhook/past_requests' do
 	protected!
-	{'requests' => past_requests}.to_json
+	erb :request_list, :locals => {:past_requests => past_requests}
 end
+

@@ -15,7 +15,7 @@
 		<script src="js/bootstrap.min.js"></script>
 
 		<!-- Custom stuff -->
-		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="private/css/style.css" />
 		<script src="private/js/scripts.js"></script>
 	</head>
 
@@ -37,22 +37,23 @@
 		</div>
 		<div class="container">
 			<div class="row">
-				<h4>Current script: <%= script %>
-				<button class="btn btn-primary refresh_button" onclick="refresh()">Refresh <span class="glyphicon glyphicon-refresh" /></button>
-				</h4>
+				<h4>Current script: <%= script %></h4>
 			</div>
 			<div class="row">
-				<div class="col-md-3 request_container">
+				<div class="col-md-4 request_container">
 					<div class="row">
-						<h5 class="col-md-12">Past Requests</h5>
+						<h5 class="col-md-12">
+							Past Requests
+							<button class="btn btn-primary btn-xs refresh_button" onclick="refresh()">Refresh <span class="glyphicon glyphicon-refresh" /></button>
+						</h5>
 					</div>
-					<div class="requests">
+					<div class="requests col-md-12">
 						<div class="row">
 							<h6 class="col-md-12">Loading Data...</h6>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-9 info_container">
+				<div class="col-md-8 info_container">
 					<div class="row">
 						<h5 class="col-md-12">Request Information</h5>
 					</div>

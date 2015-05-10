@@ -5,3 +5,7 @@
 .refresh_button {
 	margin-left: 20px;
 }
+
+.requests {
+	overflow: scroll;
+}

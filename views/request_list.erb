@@ -1,0 +1,11 @@
+<html>
+	<body>
+		<% past_requests.each do |request| %>
+			<div class="row panel panel-default">
+				<div class="panel-body">
+					<%= request.request_time.strftime('%_5d-%m-%Y&nbsp;&nbsp;%_2H:%02M:%02S %Z') %>
+				</div>
+			</div>
+		<% end %>
+	</body>
+</html>
