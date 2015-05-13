@@ -2,7 +2,7 @@
 	<body>
 		<% past_requests.each do |request| %>
 			<div class="row panel panel-default">
-				<div class="panel-body">
+				<div class="panel-body" onclick='showRequest("<%=request.request_body%>", "<%=request.request_time.strftime('%_5d-%m-%Y&nbsp;&nbsp;%_2H:%02M:%02S %Z')%>", "<%=request.output%>")'>
 					<%= request.request_time.strftime('%_5d-%m-%Y&nbsp;&nbsp;%_2H:%02M:%02S %Z') %>
 				</div>
 			</div>

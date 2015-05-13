@@ -29,6 +29,14 @@ function refresh() {
 }
 
 function sendWebhookRequest() {
-	$.post("/webhook", {"sender": "Admin Page"});
-	refresh();
+	$.post("/webhook", {"sender": "Admin Page"}, function(data) {
+		refresh();
+	});
+}
+
+function showRequest(request_body, request_time, request_output) {
+	console.log($(".request_time_info"));
+	$(".request_time_info").text(request_time);
+	$(".request_body_info").text(request_body);
+	$(".request_output_info").text(request_output);
 }

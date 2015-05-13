@@ -32,8 +32,11 @@ end
 # Run the script upon getting a webhook post request
 post '/webhook' do
 	output = `#{script}`
-	webhook_request = WebhookRequest.new(request.body.read.to_s, output)
+	body = request.body.read.to_s
+
+	webhook_request = WebhookRequest.new(body.chomp, output.chomp)
 	past_requests.unshift webhook_request
+
 	puts webhook_request.to_json
 	""
 end
@@ -50,7 +53,7 @@ get '/private/*' do
 	send_file "private/#{params['splat'][0]}"
 end
 
-# Get the past requests in json format
+# Get the html for the list of past requests
 get '/webhook/past_requests' do
 	protected!
 	erb :request_list, :locals => {:past_requests => past_requests}

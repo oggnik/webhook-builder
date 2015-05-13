@@ -9,3 +9,7 @@
 .requests {
 	overflow: scroll;
 }
+
+h6 {
+	color: #000080;
+}
