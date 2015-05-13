@@ -11,5 +11,15 @@
 }
 
 h6 {
-	color: #000080;
+	color: #777777;
+}
+
+.requests .panel-body:hover {
+	background-color: #D3D3D3;
+	cursor: pointer;
+	cursor: hand;
+}
+
+.requests .selected {
+	background-color: #EEEEEE;
 }

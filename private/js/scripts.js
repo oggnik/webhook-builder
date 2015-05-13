@@ -14,7 +14,9 @@ $(window).resize(function() {
 });
 
 function refresh() {
-	$('.requests').load('/webhook/past_requests');
+	$('.requests').load('/webhook/past_requests', null, function(data) {
+		$('.requests').animate({ scrollTop: 0 }, 500);
+	});
 	// $.get('/webhook/past_requests', null, function(data) {
 	// 	if (data.requests) {
 	// 		console.log(data.requests);
@@ -34,8 +36,14 @@ function sendWebhookRequest() {
 	});
 }
 
-function showRequest(request_body, request_time, request_output) {
-	console.log($(".request_time_info"));
+var selectedRequest = null;
+
+function showRequest(request_body, request_time, request_output, element) {
+	if (selectedRequest != null) {
+		selectedRequest.toggleClass("selected");
+	}
+	selectedRequest = $(element);
+	selectedRequest.toggleClass("selected");
 	$(".request_time_info").text(request_time);
 	$(".request_body_info").text(request_body);
 	$(".request_output_info").text(request_output);
